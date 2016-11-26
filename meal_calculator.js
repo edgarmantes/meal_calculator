@@ -29,7 +29,8 @@ Diner.prototype.taxes = function(){
 
 Diner.prototype.mealTip = function(){
 	var tiping = (this.total + this.tax) * 0.15;
-	this.tip = tiping.toFixed(2);
+	var tipString = tiping.toFixed(2);
+	this.tip = Number(tipString);
 };
 
 
@@ -53,21 +54,18 @@ Bill.prototype.taxesTotal = function(){
 	for ( var i of this.diners){
 		this.totalTaxes += i.tax;
 	};
-	//console.log('taxes are ' + this.totalTaxes)
 };
 
 Bill.prototype.tipsTotal = function(){
 	for ( var i of this.diners){
 		this.totalTips += i.tip;
 	};
-	//console.log('tips total is ' + this.totalTips)
 };
 
-var data = {
-
-};
 
 var bills = new Bill();
+
+
 
 
 var Kristen = new Diner('Kristen');
@@ -98,4 +96,4 @@ bills.billTotal();
 bills.taxesTotal();
 bills.tipsTotal();
 
-console.log(bills.diners);
+
